@@ -6,13 +6,10 @@ public class Program
     { 
         var MinhaLista = new Lista();
         
-        MinhaLista.InserirInicio(34);
         MinhaLista.InserirFim(81);
         MinhaLista.InserirFim(13);
         MinhaLista.InserirFim(27);
         MinhaLista.InserirFim(90);
-        MinhaLista.InserirInicio(77);
-        MinhaLista.InserirInicio(66);
         
         MinhaLista.MostraLista();
         

@@ -1,17 +1,13 @@
 package ExProposto1;
 
-class Elemento 
+class Professor 
 {
     public int Num, matricula, telefone;
     public String email, nome;
-    public Elemento Prox;
+    public Professor Prox;
 
-    public Elemento(int matricula, int telefone, String email, String nome) 
+    public Professor() 
     {
-        this.matricula = matricula;
-        this.telefone = telefone;
-        this.email = email;
-        this.nome = nome;
         Num = 0;
         Prox = null;
     }
