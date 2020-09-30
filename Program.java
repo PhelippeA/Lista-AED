@@ -1,28 +1,35 @@
-package ExProposto1;
 
 public class Program
 {    
     public static void main(String[] args) 
     { 
-        var MinhaLista = new Lista();
+        var mL = new Lista();
+        int op = mL.Menu();
         
-        MinhaLista.InserirFim(81);
-        MinhaLista.InserirFim(13);
-        MinhaLista.InserirFim(27);
-        MinhaLista.InserirFim(90);
+        switch(op)
+        {
+            case 1:
+                mL.OrdenaLista(mL.InserirNovoProfessor());
+                break;
+        }
         
-        MinhaLista.MostraLista();
+        mL.InserirFim(81);
+        mL.InserirFim(13);
+        mL.InserirFim(27);
+        mL.InserirFim(90);
         
-        System.out.printf("Tamanho da Lista: %1$d\n\n",MinhaLista.Tamanho);
+        mL.MostraLista();
+        
+        System.out.printf("Tamanho da Lista: %1$d\n\n",mL.Tamanho);
                 
-        MinhaLista.RetiraElemento(13);
+        mL.RetiraElemento(13);
         
-        MinhaLista.MostraLista();
+        mL.MostraLista();
         
-        System.out.printf("Tamanho da Lista: %1$d\n\n",MinhaLista.Tamanho);
+        System.out.printf("Tamanho da Lista: %1$d\n\n",mL.Tamanho);
         
-        MinhaLista.ApagaLista();
+        mL.ApagaLista();
         
-        MinhaLista.MostraLista();
+        mL.MostraLista();
     }
 } 

@@ -1,9 +1,9 @@
-package ExProposto1;
 
 import java.util.*;
 
-public class Lista {
-    private Professor inicio, fim, aux, ant;
+public class Lista 
+{
+    private Professor inicio, fim, aux;
     public int Tamanho;
     Scanner s = new Scanner(System.in);
 
@@ -27,17 +27,38 @@ public class Lista {
 
         return p;
     }
+    public Professor ListaDeTeste()
+    {
+        Professor a = new Professor();
+        Professor b = new Professor();
+        a.matricula = 10;
+        b.matricula = 14;
+        
+        a.Ant = b;
+        b.Prox = a;
+
+        return a;
+    }
 
     public void OrdenaLista(Professor p) 
     {
-        if(inicio==null)
-            inicio = p;
-        if(fim==null)
-            fim = p;
-        while(p.matricula < p.Prox.matricula){
-
-        }       
-    }
+        if(inicio==null){
+            inicio = fim = p;
+            return;
+        }
+        
+        aux = ListaDeTeste();
+        
+        do{
+            if(p.matricula < aux.matricula)
+                break;
+            aux = aux.Prox;
+        }while(aux.Prox != null);
+        p.Prox = aux.Prox;
+        aux.Prox.Ant = p;
+        p.Ant = aux;
+        aux.Prox = p;
+    }             
 
     public int Menu() {
         Scanner S = new Scanner(System.in);
@@ -95,41 +116,41 @@ public class Lista {
             S.nextLine();
         } else {
             aux = inicio;
-            ant = null;
+            // Ant = null;
 
             int Achou = 0;
 
-            while (aux != null) {
-                if (aux.Num == Valor) {
-                    Achou++;
+            // while (aux != null) {
+            //     if (aux.Num == Valor) {
+            //         Achou++;
 
-                    if (aux == inicio) {
-                        inicio = aux.Prox;
+            //         if (aux == inicio) {
+            //             inicio = aux.Prox;
 
-                        aux = inicio;
+            //             aux = inicio;
 
-                        Tamanho--;
-                    } else if (aux == fim) {
-                        ant.Prox = null;
+            //             Tamanho--;
+            //         } else if (aux == fim) {
+            //             Ant.Prox = null;
 
-                        fim = ant;
+            //             fim = Ant;
 
-                        aux = null;
+            //             aux = null;
 
-                        Tamanho--;
-                    } else {
-                        ant.Prox = aux.Prox;
+            //             Tamanho--;
+            //         } else {
+            //             Ant.Prox = aux.Prox;
 
-                        aux = aux.Prox;
+            //             aux = aux.Prox;
 
-                        Tamanho--;
-                    }
+            //             Tamanho--;
+            //         }
 
-                } else {
-                    ant = aux;
-                    aux = aux.Prox;
-                }
-            }
+            //     } else {
+            //         Ant = aux;
+            //         aux = aux.Prox;
+            //     }
+            // }
 
             if (Achou == 0) {
                 System.out.printf("\nO Valor %1$d não foi encontrado na lista...\n", Valor);
